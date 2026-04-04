@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey:            'AIzaSyA-Ru5m8YVJUJZln3RtumAUgGCeWhsNmJ8',
+  apiKey:            import.meta.env.VITE_FIREBASE_API_KEY || 'dummy_api_key',
   authDomain:        'ridershield-guidewire.firebaseapp.com',
   projectId:         'ridershield-guidewire',
   storageBucket:     'ridershield-guidewire.firebasestorage.app',
