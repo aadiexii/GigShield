@@ -16,8 +16,21 @@ RiderShield is a zero-touch, parametric income-protection platform for gig worke
 | Admin Dashboard | [ridershieldadmin.vercel.app](https://ridershieldadmin.vercel.app) | Live |
 | Backend API | [ridershield-kxj0.onrender.com](https://ridershield-kxj0.onrender.com) | Live |
 | ML Service | [ridershield-ml.onrender.com](https://ridershield-ml.onrender.com) | Live |
+| Worker App (Android APK) | Build in progress — link will be updated here shortly | Building |
 
 > The backend and ML service are hosted on Render's free tier. They may take up to 50 seconds to respond after a period of inactivity.
+
+## Demo Credentials
+
+| Role | Credential | Value |
+|---|---|---|
+| Worker App | Phone | `9999999999` |
+| Worker App | OTP | `123456` |
+| Admin Dashboard | Email | `analyst@ridershield.in` |
+| Admin Dashboard | Password | `analyst123` |
+
+> For the complete feature-by-feature evaluation guide including all API endpoints, E2E simulation steps, and code location map, see [README(Phase3).md](./README(Phase3).md).
+
 
 To help judges and contributors understand the evolution and architecture of our product, we have split our documentation into three distinct phases.
 
