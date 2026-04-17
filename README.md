@@ -8,6 +8,17 @@ RiderShield is a zero-touch, parametric income-protection platform for gig worke
 
 [View the RiderShield Pitch Deck](https://docs.google.com/presentation/d/1Ew7mLHs0yndL273A_NAtGwg8omcztNpr/edit?usp=sharing&ouid=102366805236840213099&rtpof=true&sd=true)
 
+## Live Deployments
+
+| Service | URL | Status |
+|---|---|---|
+| Public Website | [ridershieldpublic.vercel.app](https://ridershieldpublic.vercel.app) | Live |
+| Admin Dashboard | [ridershieldadmin.vercel.app](https://ridershieldadmin.vercel.app) | Live |
+| Backend API | [ridershield-kxj0.onrender.com](https://ridershield-kxj0.onrender.com) | Live |
+| ML Service | [ridershield-ml.onrender.com](https://ridershield-ml.onrender.com) | Live |
+
+> The backend and ML service are hosted on Render's free tier. They may take up to 50 seconds to respond after a period of inactivity.
+
 To help judges and contributors understand the evolution and architecture of our product, we have split our documentation into three distinct phases.
 
 ---
