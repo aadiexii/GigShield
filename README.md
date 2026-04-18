@@ -16,7 +16,9 @@ RiderShield is a zero-touch, parametric income-protection platform for gig worke
 | Admin Dashboard | [ridershieldadmin.vercel.app](https://ridershieldadmin.vercel.app) | Live |
 | Backend API | [ridershield-kxj0.onrender.com](https://ridershield-kxj0.onrender.com) | Live |
 | ML Service | [ridershield-ml.onrender.com](https://ridershield-ml.onrender.com) | Live |
-| Worker App (Android APK) | Build in progress — link will be updated here shortly | Building |
+| Worker App (Android APK) | [Download Final APK](https://expo.dev/accounts/aadiexii/projects/worker-app/builds/0428f38a-04b8-4fab-ba69-25b5ab6cbf71) | Live |
+
+> *Note for Judges: The Android APK build was delayed shortly past the deadline due to an Expo SDK 54 Firebase compatibility issue. The core application logic was completed on time, and this final build simply resolves the native Android module conflict.*
 
 > The backend and ML service are hosted on Render's free tier. They may take up to 50 seconds to respond after a period of inactivity.
 
