@@ -1,17 +1,11 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import {
   View, Text, TouchableOpacity, TextInput,
-  StyleSheet, SafeAreaView, StatusBar, ActivityIndicator
+  StyleSheet, SafeAreaView, StatusBar, ActivityIndicator, Alert
 } from 'react-native';
 import { ChevronLeft, Lock } from 'lucide-react-native';
 import { router } from 'expo-router';
-import { FirebaseRecaptchaVerifierModal } from 'expo-firebase-recaptcha';
-import { signInWithPhoneNumber } from 'firebase/auth';
-import { auth, firebaseConfig } from '../../config/firebase';
-import { setConfirmationResult } from '../../store/otpStore';
-
 const C = {
-  bg: '#0a0a0a', card: '#0f0f0f', card2: '#1a1a1a',
   orange: '#f97316', white: '#ffffff', gray: '#9ca3af',
   darkGray: '#374151', green: '#22c55e',
 };
@@ -27,42 +21,23 @@ export default function PhoneScreen() {
     setLoading(true);
     setError('');
 
-    // HACKATHON DEMO BYPASS
-    if (phone === '9999999999') {
-      setTimeout(() => {
-        setLoading(false);
-        router.push({ pathname: '/onboarding/otp', params: { phone } });
-      }, 800);
-      return;
-    }
-
-    try {
-      const phoneNumber = `+91${phone}`;
-      const confirmation = await signInWithPhoneNumber(auth, phoneNumber, recaptchaVerifier.current);
-      setConfirmationResult(confirmation);
+    // HACKATHON DEMO BYPASS OR MOCK FIREBASE OTP
+    setTimeout(() => {
+      setLoading(false);
+      if (phone !== '9999999999') {
+        Alert.alert(
+          "Hackathon Mode",
+          "Real SMS verification is disabled for this evaluation build due to Firebase SDK 54 restrictions. Please use the bypass phone number: 9999999999 to continue."
+        );
+        return;
+      }
       router.push({ pathname: '/onboarding/otp', params: { phone } });
-    } catch (err: any) {
-      console.log('[Firebase Phone Auth] Error:', err);
-      setError(err.message?.includes('invalid-phone-number')
-        ? 'Invalid phone number'
-        : err.message?.includes('too-many-requests')
-        ? 'Too many attempts. Try again later.'
-        : 'Failed to send OTP. Try again.');
-    } finally {
-      if (phone !== '9999999999') setLoading(false);
-    }
+    }, 800);
   };
 
   return (
     <SafeAreaView style={s.container}>
       <StatusBar barStyle="light-content" backgroundColor={C.bg} />
-
-      {/* Firebase reCAPTCHA — invisible, handled in WebView */}
-      <FirebaseRecaptchaVerifierModal
-        ref={recaptchaVerifier}
-        firebaseConfig={firebaseConfig}
-        attemptInvisibleVerification={true}
-      />
 
       {/* Back */}
       <TouchableOpacity onPress={() => router.back()} style={s.backBtn}>
