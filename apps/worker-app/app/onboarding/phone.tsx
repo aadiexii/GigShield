@@ -14,7 +14,6 @@ export default function PhoneScreen() {
   const [phone, setPhone] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const recaptchaVerifier = useRef<any>(null);
 
   const handleSendOTP = async () => {
     if (phone.length < 10) return;
